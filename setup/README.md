@@ -20,6 +20,7 @@ Then run the `step1` from the setup folder.
 sudo make step1
 ```
 
+You can use the output to config static ip addresses if you need to.
 
 Notes:
 - IPv4 and IPv6 information is displayed
@@ -37,14 +38,8 @@ The output of the script should be similar to the following example:
 ```text
 microk8s (1.28/stable) v1.28.3 from Canonical✓ installed
 microk8s is not running. Use microk8s inspect for a deeper inspection.
-From the node you wish to join to this cluster, run the following:
-microk8s join 192.168.1.25:25000/5c34910f90dbe740222cb5cba123480f/a9ac531234ee
-
 Use the '--worker' flag to join a node as a worker not running the control plane, eg:
-microk8s join 192.168.1.25:25000/5c34910f90dbe740222cb5cba123480f/a9ac531234ee --worker
-
-If the node you are adding is not reachable through the default interface you can use one of the following:
-microk8s join 192.168.1.25:25000/5c34910f90dbe740222cb5cba123480f/a9ac531234ee
+microk8s join 192.168.1.25:25000/cc93875afca35a07abca11234b2c884e/a9ac531234ee --worker
 ```
 
 If you have lost the output above, you can always get it again with the following command:

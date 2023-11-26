@@ -6,4 +6,4 @@ usermod -a -G microk8s $USER
 mkdir ~/.kube
 chown -R $USER ~/.kube
 microk8s status
-microk8s add-node
+microk8s add-node | grep --worker
