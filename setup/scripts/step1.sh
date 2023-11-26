@@ -12,8 +12,3 @@ ifconfig | awk '/ether / {print $2}' | awk '{ print "MAC: " $1}' >> ~/.k8s_setup
 echo "Network config:"
 cat ~/.k8s_setup/config.output
 
-if [ -z $(awk '/cgroup_memory=/ {print $1}' /boot/cmdline.txt) ]
-then
-  echo ' cgroup_memory=1 cgroup_enable=memory' >> /boot/cmdline.txt
-  echo 'Added CGroup configuration'
-fi
