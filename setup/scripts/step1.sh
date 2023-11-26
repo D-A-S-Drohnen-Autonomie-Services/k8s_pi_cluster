@@ -15,5 +15,5 @@ cat ~/.k8s_setup/config.output
 if [ -z $(awk '/cgroup_memory=/ {print $1}' /boot/cmdline.txt) ]
 then
   echo ' cgroup_memory=1 cgroup_enable=memory' >> /boot/cmdline.txt
-  echi 'Added CGroup configuration'
+  echo 'Added CGroup configuration'
 fi

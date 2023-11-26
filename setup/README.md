@@ -17,7 +17,7 @@ sudo apt install make
 Then run the `step1` from the setup folder.
 
 ```shell
-make step1
+sudo make step1
 ```
 
 
