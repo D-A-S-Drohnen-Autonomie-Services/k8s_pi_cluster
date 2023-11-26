@@ -54,8 +54,17 @@ Outputs the command that is needed to be run on Step 3. On each of the additiona
 
 Add the additional nodes from Step 2 if you have cancelled the command you can run the command again on the main server.
 
-Execute the Step3 command and then use the output from microk8s add-node
+Execute the Step3 command:
 
+```shell
+sudo make step3
+```
+
+Restart the node so that the user can have their groups updated:
+
+```shell
+sudo reboot 0
+```
 
 The final command can be extracted from step 2 the pattern is below:
 
