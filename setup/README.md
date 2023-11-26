@@ -8,6 +8,19 @@ It will output certain information into a file that is required for the cluster 
 
 This is purely a configuration step, if you would like to configure networking and assign fixed ip addresses based off mac address information this step will give you the information you require.
 
+First install make
+
+```shell
+sudo apt install make
+```
+
+Then run the `step1` from the setup folder.
+
+```shell
+make step1
+```
+
+
 Notes:
 - IPv4 and IPv6 information is displayed
 
@@ -19,23 +32,11 @@ The final command:
 ```shell
 microk8s add-node
 ```
-Outputs the command that is needed to be run on Step 3. On each of the additional nodes
+Outputs the command that is needed to be run on Step 3. On each of the additional nodes, run step 3.
 
 ## Step 3
 
-Add the additional nodes from Step 2 if you have cancelled the command you can run the command again on the main server
-```shell
-microk8s add-node
-```
+Add the additional nodes from Step 2 if you have cancelled the command you can run the command again on the main server.
 
-
-## Step 4
-
-Configure additional worker nodes.
-
-Parameters
-- K3S_TOKEN
-    - A secret token used to ensure `security between your nodes`
-- PRIMARY_SERVER_IP
-    - The IP Address of the primary server [From step 2]
+Execute the Step3 command and then use the output from microk8s add-node
 
