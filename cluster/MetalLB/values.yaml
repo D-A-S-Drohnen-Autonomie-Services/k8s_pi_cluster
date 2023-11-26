@@ -1,0 +1,4 @@
+prometheus.podMonitor:
+  enabled: true
+  annotations: metallb
+  additionalLabels: metallb
