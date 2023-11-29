@@ -27,28 +27,32 @@ Notes:
 
 ## Step 2 [Single Server Config]
 
-Configure the primary server.
+Configure the primary server with the K3S_TOKEN parameter.
 
 ```shell
+export K3S_TOKEN={K3S_TOKEN}
 sudo make step2
 ```
 
-The output of the script should be similar to the following example:
+Expected output:
 
 ```text
-microk8s (1.28/stable) v1.28.3 from Canonical✓ installed
-microk8s is not running. Use microk8s inspect for a deeper inspection.
-Use the '--worker' flag to join a node as a worker not running the control plane, eg:
-microk8s join 192.168.1.25:25000/cc93875afca35a07abca11234b2c884e/a9ac531234ee --worker
+[INFO]  systemd: Starting k3s
 ```
 
-If you have lost the output above, you can always get it again with the following command:
+You can test your local installation by using the command:
 
 ```shell
-microk8s add-node
+k3s kubectl get no
 ```
 
-Outputs the command that is needed to be run on Step 3. On each of the additional nodes, run step 3.
+The output should be similar to the following:
+
+```shell
+NAME          STATUS   ROLES                  AGE   VERSION
+primarynode   Ready    control-plane,master   66s   v1.27.7+k3s2
+```
+
 
 ## Step 3
 
@@ -57,24 +61,24 @@ Add the additional nodes from Step 2 if you have cancelled the command you can r
 Execute the Step3 command:
 
 ```shell
+export K3S_TOKEN={K3S_TOKEN}
+export K3S_SERVER_IP={K3S_SERVER_IP}
 sudo make step3
 ```
 
-Restart the node so that the user can have their groups updated:
+Once the request has been completed, go back to the server node [from step 2] and try the following command:
 
 ```shell
-sudo reboot 0
+k3s kubectl get no
 ```
 
-The final command can be extracted from step 2 the pattern is below:
+The output should be similar to the following:
 
-```shell
-microk8s join {PRIMARY_SERVER}:25000/{JOIN_CODE} --worker
+```text
+NAME          STATUS   ROLES                  AGE   VERSION
+primarynode   Ready    control-plane,master   5m    v1.27.7+k3s2
+node2         Ready    <none>                 12s   v1.27.7+k3s2
+node1         Ready    <none>                 12s   v1.27.7+k3s2
 ```
 
-An example:
-
-```shell
-microk8s join 192.168.1.25:25000/5c34910f90dbe740222cb5cba8298975/421c531441ee --worker
-```
-
+Mission accomplished.

@@ -1,7 +1,3 @@
 #!/bin/bash
-
-# Install microk8s
-sudo snap install microk8s --classic
-mkdir -p ~/.kube
-sudo usermod -a -G microk8s $USER
-sudo chown -R $USER ~/.kube
+# Install k3s as agent
+curl -sfL https://get.k3s.io | K3S_URL=https://${K3S_SERVER_IP}:6443 K3S_TOKEN=${K3S_TOKEN} sh -

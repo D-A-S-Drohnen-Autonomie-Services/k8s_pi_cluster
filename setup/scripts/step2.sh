@@ -1,9 +1,3 @@
 #!/bin/bash
-# Install microk8s
-snap install microk8s --classic
-# Update user permissions
-usermod -a -G microk8s $USER
-mkdir ~/.kube
-chown -R $USER ~/.kube
-microk8s status
-microk8s add-node | grep --worker
+# Install k3s
+curl -sfL https://get.k3s.io | K3S_TOKEN=$K3S_TOKEN sh -
