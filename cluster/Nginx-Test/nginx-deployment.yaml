@@ -32,7 +32,7 @@ metadata:
   name: nginx
   namespace: nginx-test
   annotations:
-    metallb.universe.tf/loadBalancerIPs: 192.168.50.50
+    metallb.universe.tf/address-pool: primary-pool
 spec:
   ports:
     - port: 80

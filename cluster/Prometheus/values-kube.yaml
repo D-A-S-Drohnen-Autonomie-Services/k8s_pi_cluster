@@ -461,8 +461,7 @@ alertmanager:
   ## Configuration for Alertmanager service
   ##
   service:
-    annotations:
-      metallb.universe.tf/loadBalancerIPs: 192.168.60.75
+    annotations: {}
     labels: {}
     clusterIP: ""
 
@@ -916,7 +915,7 @@ alertmanager:
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 ##
 grafana:
-  enabled: true
+  enabled: false
   namespaceOverride: ""
 
   ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
@@ -2629,8 +2628,7 @@ prometheus:
   ## Configuration for Prometheus service
   ##
   service:
-    annotations:
-      metallb.universe.tf/loadBalancerIPs: 192.168.60.77
+    annotations: {}
     labels: {}
     clusterIP: ""
 
