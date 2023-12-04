@@ -1257,7 +1257,7 @@ kubelet:
     ## MetricRelabelConfigs to apply to samples after scraping, but before ingestion.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#relabelconfig
     ##
-    cAdvisorMetricRelabelings: {}
+#    cAdvisorMetricRelabelings:
       # Drop less useful container CPU metrics.
 #      - sourceLabels: [__name__]
 #        action: drop
@@ -2206,8 +2206,7 @@ prometheusOperator:
   ## Configuration for Prometheus operator service
   ##
   service:
-    annotations:
-      metallb.universe.tf/loadBalancerIPs: 192.168.60.76
+    annotations: {}
     labels: {}
     clusterIP: ""
 
@@ -3353,7 +3352,29 @@ prometheus:
     ## The scrape configuration example below will find master nodes, provided they have the name .*mst.*, relabel the
     ## port to 2379 and allow etcd scraping provided it is running on all Kubernetes master nodes
     ##
-    additionalScrapeConfigs: {}
+    additionalScrapeConfigs:
+      - job_name: 'kubernetes-service-endpoints'
+        scrape_interval: 1s
+        scrape_timeout: 1s
+        kubernetes_sd_configs:
+          - role: pod
+            namespaces:
+              names:
+                - grafana
+#        relabel_configs:
+#          - source_labels: [ __meta_kubernetes_pod_annotation_prometheus_io_scrape ]
+#            regex: "true"
+#            replacement: $1
+#            action: keep
+#          - source_labels: [ __address__;__meta_kubernetes_pod_annotation_prometheus_io_port ]
+#            target_label: __address__
+#            regex: '(.*:)\d+;(\d+)'
+#            replacement: $1$2
+
+    #        relabel_configs:
+#          - source_labels: [ __meta_kubernetes_pod_label_app ]
+#            regex: myapp
+#            action: keep
     # - job_name: kube-etcd
     #   kubernetes_sd_configs:
     #     - role: node

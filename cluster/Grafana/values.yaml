@@ -1,3 +1,12 @@
+## Pod Annotations
+podAnnotations:
+  prometheus.io.scheme: "http"
+  prometheus.io/scrape: "true"
+  prometheus.io/path: "/metrics"
+  prometheus.io/port: "8080"
+
+replicas: 1
+
 ## Expose the grafana service to be accessed from outside the cluster (LoadBalancer service).
 ## or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
 ## ref: http://kubernetes.io/docs/user-guide/services/
@@ -9,11 +18,31 @@ service:
   targetPort: 3000
   # targetPort: 4181 To be used with a proxy extraContainer
   ## Service annotations. Can be templated.
-  annotations: {}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io.scheme: "http"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "80"
   labels: {}
   portName: service
   # Adds the appProtocol field to the service. This allows to work with istio protocol selection. Ex: "http" or "tcp"
   appProtocol: ""
+
+serviceMonitor:
+  ## If true, a ServiceMonitor CRD is created for a prometheus operator
+  ## https://github.com/coreos/prometheus-operator
+  ##
+  enabled: true
+  path: /metrics
+  #  namespace: monitoring  (defaults to use the namespace this chart is deployed to)
+  labels: {}
+  interval: 30s
+  scheme: http
+  tlsConfig: {}
+  scrapeTimeout: 30s
+  relabelings: []
+  metricRelabelings: []
+  targetLabels: []
 
 # Administrator credentials when not using an existing secret (see below)
 adminUser: admin
@@ -33,11 +62,11 @@ datasources:
   datasources.yaml:
     apiVersion: 1
     datasources:
-    - name: kube-prometheus
-      type: prometheus
-      url: http://kube-prometheus.dastech.local:9090
-      access: proxy
-      isDefault: true
+      - name: kube-prometheus
+        type: prometheus
+        url: http://kube-prometheus.dastech.local:9090
+        access: proxy
+        isDefault: true
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
