@@ -546,7 +546,7 @@
       "1d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Grafana Overview",
   "uid": "6be0s85Mk",
   "version": 2

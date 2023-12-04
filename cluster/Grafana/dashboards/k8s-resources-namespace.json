@@ -2371,7 +2371,7 @@
       "30d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Kubernetes / Compute Resources / Namespace (Pods)",
   "uid": "85a562078cdf77779eaa1add43ccec1e",
   "version": 0

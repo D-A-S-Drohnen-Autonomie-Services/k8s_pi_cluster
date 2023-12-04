@@ -846,7 +846,7 @@
       "30d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Kubernetes / Compute Resources / Pod(Windows)",
   "uid": "40597a704a610e936dc6ed374a7ce023",
   "version": 0

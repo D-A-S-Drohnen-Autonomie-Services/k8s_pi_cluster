@@ -1489,7 +1489,7 @@
       "30d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Prometheus / Remote Write",
   "version": 0
 }

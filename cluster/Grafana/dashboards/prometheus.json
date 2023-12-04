@@ -1052,7 +1052,7 @@
       "30d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Prometheus / Overview",
   "uid": "",
   "version": 0

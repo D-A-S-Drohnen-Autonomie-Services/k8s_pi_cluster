@@ -935,7 +935,7 @@
       "30d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Node Exporter / Nodes",
   "version": 0
 }

@@ -715,7 +715,7 @@
       "30d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Kubernetes / USE Method / Cluster(Windows)",
   "uid": "53a43377ec9aaf2ff64dfc7a1f539334",
   "version": 0

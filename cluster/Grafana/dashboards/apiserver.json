@@ -1557,7 +1557,7 @@
       "30d"
     ]
   },
-  "timezone": "`}}{{ .Values.grafana.defaultDashboardsTimezone }}{{`",
+  "timezone": "utc",
   "title": "Kubernetes / API server",
   "uid": "09ec8aa1e996d6ffcd6817bbaff4db1b",
   "version": 0
