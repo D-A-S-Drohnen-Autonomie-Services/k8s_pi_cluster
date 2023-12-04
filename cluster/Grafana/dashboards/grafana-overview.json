@@ -464,7 +464,7 @@
         "type": "datasource"
       },
       {
-        "allValue": ".*",
+        "allValue": ".+",
         "current": {
           "selected": false,
           "text": [
@@ -488,7 +488,7 @@
           "query": "label_values(grafana_build_info, job)",
           "refId": "Billing Admin-job-Variable-Query"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -498,7 +498,7 @@
         "useTags": false
       },
       {
-        "allValue": ".*",
+        "allValue": ".+",
         "current": {
           "selected": false,
           "text": "All",
@@ -518,7 +518,7 @@
           "query": "label_values(grafana_build_info, instance)",
           "refId": "Billing Admin-instance-Variable-Query"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
