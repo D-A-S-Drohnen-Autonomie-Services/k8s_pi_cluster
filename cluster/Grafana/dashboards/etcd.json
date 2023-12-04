@@ -526,7 +526,7 @@
         "query": "label_values(etcd_server_has_leader{job=~\".*etcd.*\"}, job)",
         "refresh": 2,
         "type": "query",
-        "hide": "`}}{{ if (or .Values.grafana.sidecar.dashboards.multicluster.global.enabled .Values.grafana.sidecar.dashboards.multicluster.etcd.enabled) }}0{{ else }}2{{ end }}{{`"
+        "hide": 2
       }
     ]
   },
