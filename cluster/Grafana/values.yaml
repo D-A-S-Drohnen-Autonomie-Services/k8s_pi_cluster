@@ -87,76 +87,18 @@ dashboardProviders:
         folder: ''
         type: file
         disableDeletion: false
-        editable: true
+        editable: false
         options:
           path: /var/lib/grafana/dashboards/default
 
-dashboards:
-  default:
-    kube-monitoring:
-      gnetId: 315
-      datasource: kube-prometheus
-      revision: 3
-    alertmanager-overview:
-      file: dashboards/alertmanager-overview.json
-    apiserver:
-      file: dashboards/apiserver.json
-    cluster-total:
-      file: dashboards/cluster-total.json
-    controller-manager:
-      file: dashboards/controller-manager.json
-    etcd:
-      file: dashboards/etcd.json
-    grafana-overview:
-      file: dashboards/grafana-overview.json
-    k8s-coredns:
-      file: dashboards/k8s-coredns.json
-    k8s-resources-cluster:
-      file: dashboards/k8s-resources-cluster.json
-    k8s-resources-multicluster:
-      file: dashboards/k8s-resources-multicluster.json
-    k8s-resources-namespace:
-      file: dashboards/k8s-resources-namespace.json
-    k8s-resources-node:
-      file: dashboards/k8s-resources-node.json
-    k8s-resources-pod:
-      file: dashboards/k8s-resources-pod.json
-    k8s-resources-windows-cluster:
-      file: dashboards/k8s-resources-windows-cluster.json
-    k8s-resources-windows-namespace:
-      file: dashboards/k8s-resources-windows-namespace.json
-    k8s-resources-windows-pod:
-      file: dashboards/k8s-resources-windows-pod.json
-    k8s-resources-workload:
-      file: dashboards/k8s-resources-workload.json
-    k8s-resources-workloads-namespace:
-      file: dashboards/k8s-resources-workloads-namespace.json
-    k8s-windows-cluster-rsrc-use:
-      file: dashboards/k8s-windows-cluster-rsrc-use.json
-    k8s-windows-node-rsrc-use:
-      file: dashboards/k8s-windows-node-rsrc-use.json
-    kubelet:
-      file: dashboards/kubelet.json
-    namespace-by-pod:
-      file: dashboards/namespace-by-pod.json
-    namespace-by-workload:
-      file: dashboards/namespace-by-workload.json
-    nodes:
-      file: dashboards/nodes.json
-    persistentvolumesusage:
-      file: dashboards/persistentvolumesusage.json
-    pod-total:
-      file: dashboards/pod-total.json
-    prometheus-remote-write:
-      file: dashboards/prometheus-remote-write.json
-    prometheus:
-      file: dashboards/prometheus.json
-    proxy:
-      file: dashboards/proxy.json
-    scheduler:
-      file: dashboards/scheduler.json
-    workload-total:
-      file: dashboards/workload-total.json
+#dashboards:
+#  default:
+#    kube-monitoring:
+#      gnetId: 315
+#      datasource: kube-prometheus
+#      revision: 3
+#    k8s-addons-prometheus:
+#      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-addons-prometheus.json
 
   # default:
   #   some-dashboard:
