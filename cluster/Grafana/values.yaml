@@ -140,9 +140,9 @@ image:
   # -- The Docker registry
   registry: docker.io
   # -- Docker image repository
-  repository: grafana/grafana
+  repository: dastech/grafana
   # Overrides the Grafana image tag whose default is the chart appVersion
-  tag: ""
+  tag: latest
   sha: ""
   pullPolicy: IfNotPresent
 
