@@ -1,2 +1,2 @@
 FROM grafana/grafana:latest
-COPY ./cluster/Grafana/dashboards/das-tech/ ./das-tech/
+COPY ./dashboards/das-tech/ ./das-tech/
