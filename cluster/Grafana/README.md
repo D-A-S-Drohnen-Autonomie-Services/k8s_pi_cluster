@@ -9,3 +9,5 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 helm install grafana grafana/grafana -f values.yaml --namespace grafana --create-namespace
 ```
+
+Dashboards taken from: https://github.com/dotdc/grafana-dashboards-kubernetes/tree/master/dashboards thank you.
