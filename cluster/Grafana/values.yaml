@@ -5,7 +5,7 @@ podAnnotations:
   prometheus.io/path: "/metrics"
   prometheus.io/port: "8080"
 
-replicas: 1
+replicas: 3
 
 ## Expose the grafana service to be accessed from outside the cluster (LoadBalancer service).
 ## or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
@@ -78,25 +78,33 @@ datasources:
 #    deleteDatasources: []
 #    - name: Prometheus
 
-dashboardProviders:
-  dashboardproviders.yaml:
-    apiVersion: 1
-    providers:
-      - name: 'default'
-        orgId: 1
-        folder: ''
-        type: file
-        disableDeletion: false
-        editable: false
-        options:
-          path: /var/lib/grafana/dashboards/default
+#dashboardProviders:
+#  dashboardproviders.yaml:
+#    apiVersion: 1
+#    providers:
+#      - name: 'default'
+#        orgId: 1
+#        folder: ''
+#        type: file
+#        disableDeletion: false
+#        editable: false
+#        options:
+#          path: /var/lib/grafana/dashboards/default
 
-#dashboards:
-#  default:
-#    kube-monitoring:
-#      gnetId: 315
-#      datasource: kube-prometheus
-#      revision: 3
+dashboards:
+  default:
+    kube-monitoring:
+      gnetId: 315
+      datasource: kube-prometheus
+      revision: 3
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPU: "60"
+  targetMemory: ""
+  behavior: {}
 #    k8s-addons-prometheus:
 #      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-addons-prometheus.json
 
@@ -127,3 +135,21 @@ dashboardProviders:
   #     url: https://example.com/repository/test-azure.json
   #     basic: ''
 #     acceptHeader: '*/*'
+
+image:
+  # -- The Docker registry
+  registry: docker.io
+  # -- Docker image repository
+  repository: grafana/grafana
+  # Overrides the Grafana image tag whose default is the chart appVersion
+  tag: ""
+  sha: ""
+  pullPolicy: IfNotPresent
+
+  ## Optionally specify an array of imagePullSecrets.
+  ## Secrets must be manually created in the namespace.
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+  ## Can be templated.
+  ##
+  pullSecrets: []
+  #   - myRegistrKeySecretName
