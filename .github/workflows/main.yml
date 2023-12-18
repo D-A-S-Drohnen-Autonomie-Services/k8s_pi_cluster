@@ -10,7 +10,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v6
         name: Build & push Docker image
         with:
-          image: repo/image
+          image: dastech/grafana
           tags: v1, latest
           registry: docker.io
           dockerfile: cluster/Grafana/Dockerfile
